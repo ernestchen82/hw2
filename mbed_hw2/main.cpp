@@ -16,6 +16,8 @@ Thread t1;
 Thread t2;
 Thread t3;
 
+Timeout t;
+
 uLCD_4DGL uLCD(D1,D0,D2);
 
 int sample = 200;
@@ -96,25 +98,44 @@ void ulcd2()
     uLCD.printf("frequency  50hz");
 }
 
+
+
 void wave1()
 {
     output = 1;
-    /*for (int i = 0; i < sample; i++)
+    for (int i = 0; i < sample; i++)
     {
-        ADCdata[i] = Ain;
-        ThisThread::sleep_for(1000ms/sample);
-    }*/
-    /*for (int i = 0; i < sample; i++)
+        
+        ADCdata[i] = Ain*3.3f;
+        ThisThread::sleep_for(4ms);
+        
+    }
+    for (int i = 0; i < sample; i++)
     {
         printf("%f\r\n", ADCdata[i]);
-        ThisThread::sleep_for(1ms);
-    }*/
+        ThisThread::sleep_for(10ms);
+    }
+    
+    
     
 }
 
 void wave2()
 {
     output = 2;
+    for (int i = 0; i < sample; i++)
+    {
+        
+        ADCdata[i] = Ain*3.3f;
+        ThisThread::sleep_for(4ms);
+        
+    }
+
+    for (int i = 0; i < sample; i++)
+    {
+        printf("%f\r\n", ADCdata[i]);
+        ThisThread::sleep_for(10ms);
+    }
 }
 
 void output1()

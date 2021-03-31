@@ -1,0 +1,11 @@
+For controlling frenquency:
+
+button1.rise(lcdqueue.event(output1));   // interrupt to change ulcd screen for 100Hz wave
+button2.rise(lcdqueue.event(output1));   // interrupt to change ulcd screen for 500Hz wave
+
+button3.fall(choosequeue.event(wave1));     //interrupt to confirm the frenquency change 
+button3.fall(choosequeue.event(wave2));
+
+void triangular()       // generate waveform depends on button control
+
+
