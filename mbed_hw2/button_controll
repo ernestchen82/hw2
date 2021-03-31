@@ -1,0 +1,58 @@
+void ulcd(const char* f)
+{
+    uLCD.text_width(2);
+    uLCD.text_height(2);
+    uLCD.locate(0,0);
+    uLCD.color(WHITE);
+    uLCD.textbackground_color(GREEN);
+    uLCD.printf(f);
+}
+
+
+
+
+int main()
+{
+    /* check mypin object is initialized and connected to a pin
+    if (mypin.is_connected()) {
+    printf("mypin is connected and initialized! \n\r");
+    }*/
+    // Optional: set mode as PullUp/PullDown/PullNone/OpenDrain
+    int frequency = 0;
+    
+    mypin.mode(PullNone);
+    mypin2.mode(PullNone);
+    
+
+    while (1) 
+    {
+        if (mypin == 1){
+            uLCD.cls();
+            frequency = 0;
+        }
+
+        if (mypin2 == 1){
+            uLCD.cls();
+            frequency = 1;
+        }
+        
+        switch (frequency)
+        {
+        case 0:
+            ulcd("freqency 1");
+            //triangular(Aout, 0.003008f);
+            break;
+
+        case 1:
+            ulcd("freqency 2");
+            //triangular(Aout, 0.001504f);
+            break;    
+        
+        default:
+            ulcd("freqency 1");
+            //triangular(Aout, 0.003008f);
+            break;
+        }
+        
+    }
+}
